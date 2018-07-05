@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CarteiraVirtualModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Carteira">
+    <Key>
+      <PropertyRef Name="idCarteira" />
+    </Key>
+    <Property Name="idCarteira" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fkCliente" Type="Int32" />
+    <Property Name="saldo" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="nomeCarteira" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Cliente">
+    <Key>
+      <PropertyRef Name="idCliente" />
+    </Key>
+    <Property Name="idCliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nomeCliente" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Name="sobreCliente" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Name="emailCliente" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="senha" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="cepCliente" Type="String" MaxLength="12" FixedLength="true" Unicode="false" />
+    <Property Name="cpfCliente" Type="String" MaxLength="18" FixedLength="true" Unicode="false" />
+    <Property Name="rgCliente" Type="String" MaxLength="18" FixedLength="true" Unicode="false" />
+    <Property Name="dtNasc" Type="DateTime" Precision="0" />
+    <Property Name="sexo" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="telCliente" Type="Int32" />
+    <Property Name="celCliente" Type="Int32" />
+    <Property Name="dtRegistro" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="Movimento">
+    <Key>
+      <PropertyRef Name="idMovimento" />
+    </Key>
+    <Property Name="idMovimento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fkCarConta" Type="Int32" />
+    <Property Name="fkCarDestino" Type="Int32" />
+    <Property Name="acaoMov" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="nrDocumento" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="vlBruto" Type="Decimal" Precision="14" Scale="2" />
+    <Property Name="vlLiquido" Type="Decimal" Precision="14" Scale="2" />
+    <Property Name="vlDesc" Type="Decimal" Precision="14" Scale="2" />
+    <Property Name="dtMovimento" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="Parceiro">
+    <Key>
+      <PropertyRef Name="idParceiro" />
+    </Key>
+    <Property Name="idParceiro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CNPJ" Type="String" MaxLength="18" FixedLength="true" Unicode="false" />
+    <Property Name="emailParceiro" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="razaoParceiro" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="cpfParceiro" Type="String" MaxLength="18" FixedLength="true" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ParceiroFilial">
+    <Key>
+      <PropertyRef Name="idFilial" />
+    </Key>
+    <Property Name="idFilial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fkParceiro" Type="Int32" />
+    <Property Name="desconto" Type="Decimal" Precision="2" Scale="2" />
+  </EntityType>
+  <EntityType Name="Senha">
+    <Key>
+      <PropertyRef Name="idSenha" />
+    </Key>
+    <Property Name="idSenha" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fkCarteira" Type="Int32" />
+    <Property Name="canal" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+    <Property Name="senha" Type="String" MaxLength="80" FixedLength="true" Unicode="false" />
+    <Property Name="senhaopcional" Type="Int32" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityContainer Name="CarteiraEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Carteira" EntityType="Self.Carteira" />
+    <EntitySet Name="Cliente" EntityType="Self.Cliente" />
+    <EntitySet Name="Movimento" EntityType="Self.Movimento" />
+    <EntitySet Name="Parceiro" EntityType="Self.Parceiro" />
+    <EntitySet Name="ParceiroFilial" EntityType="Self.ParceiroFilial" />
+    <EntitySet Name="Senha" EntityType="Self.Senha" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+  </EntityContainer>
+</Schema>

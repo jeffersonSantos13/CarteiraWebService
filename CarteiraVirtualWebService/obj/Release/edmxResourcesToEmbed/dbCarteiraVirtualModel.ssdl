@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CarteiraVirtualModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Carteira">
+    <Key>
+      <PropertyRef Name="idCarteira" />
+    </Key>
+    <Property Name="idCarteira" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fkCliente" Type="int" />
+    <Property Name="saldo" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="nomeCarteira" Type="varchar" MaxLength="60" />
+  </EntityType>
+  <EntityType Name="Cliente">
+    <Key>
+      <PropertyRef Name="idCliente" />
+    </Key>
+    <Property Name="idCliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nomeCliente" Type="varchar" MaxLength="120" />
+    <Property Name="sobreCliente" Type="varchar" MaxLength="120" />
+    <Property Name="emailCliente" Type="varchar" MaxLength="80" />
+    <Property Name="senha" Type="varchar" MaxLength="250" />
+    <Property Name="cepCliente" Type="char" MaxLength="12" />
+    <Property Name="cpfCliente" Type="char" MaxLength="18" />
+    <Property Name="rgCliente" Type="char" MaxLength="18" />
+    <Property Name="dtNasc" Type="date" />
+    <Property Name="sexo" Type="char" MaxLength="1" />
+    <Property Name="telCliente" Type="int" />
+    <Property Name="celCliente" Type="int" />
+    <Property Name="dtRegistro" Type="date" />
+  </EntityType>
+  <EntityType Name="Movimento">
+    <Key>
+      <PropertyRef Name="idMovimento" />
+    </Key>
+    <Property Name="idMovimento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fkCarConta" Type="int" />
+    <Property Name="fkCarDestino" Type="int" />
+    <Property Name="acaoMov" Type="char" MaxLength="1" />
+    <Property Name="nrDocumento" Type="varchar" MaxLength="30" />
+    <Property Name="vlBruto" Type="numeric" Precision="14" Scale="2" />
+    <Property Name="vlLiquido" Type="numeric" Precision="14" Scale="2" />
+    <Property Name="vlDesc" Type="numeric" Precision="14" Scale="2" />
+    <Property Name="dtMovimento" Type="date" />
+  </EntityType>
+  <EntityType Name="Parceiro">
+    <Key>
+      <PropertyRef Name="idParceiro" />
+    </Key>
+    <Property Name="idParceiro" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CNPJ" Type="char" MaxLength="18" />
+    <Property Name="emailParceiro" Type="varchar" MaxLength="80" />
+    <Property Name="razaoParceiro" Type="varchar" MaxLength="80" />
+    <Property Name="cpfParceiro" Type="char" MaxLength="18" />
+  </EntityType>
+  <EntityType Name="ParceiroFilial">
+    <Key>
+      <PropertyRef Name="idFilial" />
+    </Key>
+    <Property Name="idFilial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fkParceiro" Type="int" />
+    <Property Name="desconto" Type="numeric" Precision="2" Scale="2" />
+  </EntityType>
+  <EntityType Name="Senha">
+    <Key>
+      <PropertyRef Name="idSenha" />
+    </Key>
+    <Property Name="idSenha" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fkCarteira" Type="int" />
+    <Property Name="canal" Type="char" MaxLength="3" />
+    <Property Name="senha" Type="varchar" MaxLength="80" />
+    <Property Name="senhaopcional" Type="int" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityContainer Name="CarteiraVirtualModelStoreContainer">
+    <EntitySet Name="Carteira" EntityType="Self.Carteira" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Movimento" EntityType="Self.Movimento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Parceiro" EntityType="Self.Parceiro" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ParceiroFilial" EntityType="Self.ParceiroFilial" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Senha" EntityType="Self.Senha" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

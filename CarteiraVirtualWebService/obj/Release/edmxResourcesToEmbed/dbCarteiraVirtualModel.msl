@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CarteiraVirtualModelStoreContainer" CdmEntityContainer="CarteiraEntities">
+    <EntitySetMapping Name="Carteira">
+      <EntityTypeMapping TypeName="CarteiraVirtualModel.Carteira">
+        <MappingFragment StoreEntitySet="Carteira">
+          <ScalarProperty Name="idCarteira" ColumnName="idCarteira" />
+          <ScalarProperty Name="fkCliente" ColumnName="fkCliente" />
+          <ScalarProperty Name="saldo" ColumnName="saldo" />
+          <ScalarProperty Name="nomeCarteira" ColumnName="nomeCarteira" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cliente">
+      <EntityTypeMapping TypeName="CarteiraVirtualModel.Cliente">
+        <MappingFragment StoreEntitySet="Cliente">
+          <ScalarProperty Name="idCliente" ColumnName="idCliente" />
+          <ScalarProperty Name="nomeCliente" ColumnName="nomeCliente" />
+          <ScalarProperty Name="sobreCliente" ColumnName="sobreCliente" />
+          <ScalarProperty Name="senha" ColumnName="senha" />
+          <ScalarProperty Name="emailCliente" ColumnName="emailCliente" />
+          <ScalarProperty Name="cepCliente" ColumnName="cepCliente" />
+          <ScalarProperty Name="cpfCliente" ColumnName="cpfCliente" />
+          <ScalarProperty Name="rgCliente" ColumnName="rgCliente" />
+          <ScalarProperty Name="dtNasc" ColumnName="dtNasc" />
+          <ScalarProperty Name="sexo" ColumnName="sexo" />
+          <ScalarProperty Name="telCliente" ColumnName="telCliente" />
+          <ScalarProperty Name="celCliente" ColumnName="celCliente" />
+          <ScalarProperty Name="dtRegistro" ColumnName="dtRegistro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Movimento">
+      <EntityTypeMapping TypeName="CarteiraVirtualModel.Movimento">
+        <MappingFragment StoreEntitySet="Movimento">
+          <ScalarProperty Name="idMovimento" ColumnName="idMovimento" />
+          <ScalarProperty Name="fkCarConta" ColumnName="fkCarConta" />
+          <ScalarProperty Name="fkCarDestino" ColumnName="fkCarDestino" />
+          <ScalarProperty Name="acaoMov" ColumnName="acaoMov" />
+          <ScalarProperty Name="nrDocumento" ColumnName="nrDocumento" />
+          <ScalarProperty Name="vlBruto" ColumnName="vlBruto" />
+          <ScalarProperty Name="vlLiquido" ColumnName="vlLiquido" />
+          <ScalarProperty Name="vlDesc" ColumnName="vlDesc" />
+          <ScalarProperty Name="dtMovimento" ColumnName="dtMovimento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Parceiro">
+      <EntityTypeMapping TypeName="CarteiraVirtualModel.Parceiro">
+        <MappingFragment StoreEntitySet="Parceiro">
+          <ScalarProperty Name="idParceiro" ColumnName="idParceiro" />
+          <ScalarProperty Name="CNPJ" ColumnName="CNPJ" />
+          <ScalarProperty Name="emailParceiro" ColumnName="emailParceiro" />
+          <ScalarProperty Name="razaoParceiro" ColumnName="razaoParceiro" />
+          <ScalarProperty Name="cpfParceiro" ColumnName="cpfParceiro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ParceiroFilial">
+      <EntityTypeMapping TypeName="CarteiraVirtualModel.ParceiroFilial">
+        <MappingFragment StoreEntitySet="ParceiroFilial">
+          <ScalarProperty Name="idFilial" ColumnName="idFilial" />
+          <ScalarProperty Name="fkParceiro" ColumnName="fkParceiro" />
+          <ScalarProperty Name="desconto" ColumnName="desconto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Senha">
+      <EntityTypeMapping TypeName="CarteiraVirtualModel.Senha">
+        <MappingFragment StoreEntitySet="Senha">
+          <ScalarProperty Name="idSenha" ColumnName="idSenha" />
+          <ScalarProperty Name="fkCarteira" ColumnName="fkCarteira" />
+          <ScalarProperty Name="canal" ColumnName="canal" />
+          <ScalarProperty Name="senha" ColumnName="senha" />
+          <ScalarProperty Name="senhaopcional" ColumnName="senhaopcional" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="CarteiraVirtualModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
